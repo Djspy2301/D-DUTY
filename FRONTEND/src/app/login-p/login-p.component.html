@@ -1,0 +1,28 @@
+<body>
+
+    <div class="wrapper">
+        <h2 id="head_log">Login</h2>
+        <form #userLogin="ngForm" (ngSubmit)="login(userLogin.value)">
+            <div class="input_box">
+                <span class="icon"><fa-icon [icon]="email"></fa-icon></span>
+                <input type="email" class="inpt" name="email" ngModel>
+                <label for="email">Email</label>
+            </div>
+            <div class="input_box">
+                <span class="icon"><fa-icon [icon]="password"></fa-icon></span>
+                <input type="password" class="inpt" name="password" ngModel>
+                <label for="password">Password</label>
+            </div>
+            <div class="input_box">
+                <label for="remember"><input type="checkbox">Remember</label>
+                <a href="#">Forget Password?</a>
+                <button type="submit" class="btn">Login</button>
+            </div>
+            
+            <div class="register">
+                <p>Don't have account? <a routerLink="sign-up" class="register-link">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+</body>

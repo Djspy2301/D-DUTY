@@ -1,0 +1,55 @@
+ body{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 80vh;
+    align-items: center;
+}
+
+#head_log{
+    text-align: center;
+}
+.wrapper{
+    position: relative;
+    width: 350px;
+    height: 440;
+    background: transparent;
+    border: 2px solid rgba(116, 108, 108, 0.5); 
+    padding: 10px;
+} 
+
+.input_box{
+    padding: 10px;
+    display: block;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 8vh;
+    justify-content: center;
+}
+
+.inpt{
+    text-align: center;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.btn{
+    border: 2px solid gray;
+    color: white;
+    background-color: black;
+    width: 150px;
+    margin: 15px;
+}
+.register{
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:280px) {
+    body{
+        display: flex;
+        justify-content: center;
+    }
+}
+
