@@ -9,4 +9,8 @@ import {faEnvelope, faLock} from '@fortawesome/free-solid-svg-icons'
 export class SignUpPComponent {
   email=faEnvelope;
   password=faLock;
+
+  signUp(data: any):void{
+    console.warn(data);
+  }
 }

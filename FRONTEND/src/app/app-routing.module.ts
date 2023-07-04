@@ -14,11 +14,11 @@ const routes: Routes = [
     component: HomePComponent
   },
   {
-    path: 'api/v1/tasks/sign-up',
+    path: 'api/v1/sign-up',
     component: SignUpPComponent
   },
   {
-    path: 'api/v1/tasks/log-in',
+    path: 'api/v1/log-in',
     component: LoginPComponent
   },
   {

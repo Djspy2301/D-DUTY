@@ -15,7 +15,7 @@ const start = async () => {
     try{
         await connectDB(process.env.MONGO_URI)
         app.listen(port, () => {
-            console.log(`app listining on port: https://localhost:${port}/api/v1`)
+            console.log(`app listining on port: https://localhost:${port}/api/v1/`)
         });
     }catch(error){
         console.log(error);

@@ -2,15 +2,15 @@
 
     <div class="wrapper">
         <h2 id="head_log">Register</h2>
-        <form action="#">
+        <form #hostSignUp="ngForm" (ngSubmit)="signUp(hostSignUp.value)">
             <div class="input_box">
                 <span class="icon"><fa-icon [icon]="email"></fa-icon></span>
-                <input type="email" name="email" required>
+                <input type="email" name="email" ngModel >
                 <label for="email">Email</label>
             </div>
             <div class="input_box">
                 <span class="icon"><fa-icon [icon]="password"></fa-icon></span>
-                <input type="password" name="password" required>
+                <input type="password" name="password" ngModel >
                 <label for="password">Password</label>
             </div>
             <div class="input_box">
