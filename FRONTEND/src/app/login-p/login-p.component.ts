@@ -13,9 +13,9 @@ export class LoginPComponent {
 
   constructor(private adminService: AdminService){
   }
-  login(data : any){
-    // console.warn(data);
-    this.adminService.logIn(data);
+  // login(data : any){
+  //   // console.warn(data);
+  //   this.adminService.logIn(data);
     
-  }
+  // }
 }

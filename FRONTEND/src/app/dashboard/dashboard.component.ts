@@ -12,7 +12,7 @@ export class DashboardComponent {
 
   }
 
-  ngOnInit(){
-    this.adminService.dashBoadrd()
-  }
+  // ngOnInit(){
+  //   this.adminService.dashBoadrd()
+  // }
 }

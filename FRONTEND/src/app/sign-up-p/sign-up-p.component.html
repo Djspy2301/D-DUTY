@@ -5,6 +5,11 @@
         <form #hostSignUp="ngForm" (ngSubmit)="signUp(hostSignUp.value)">
             <div class="input_box">
                 <span class="icon"><fa-icon [icon]="email"></fa-icon></span>
+                <input type="text" name="user" ngModel >
+                <label for="user">username</label>
+            </div>
+            <div class="input_box">
+                <span class="icon"><fa-icon [icon]="email"></fa-icon></span>
                 <input type="email" name="email" ngModel >
                 <label for="email">Email</label>
             </div>
