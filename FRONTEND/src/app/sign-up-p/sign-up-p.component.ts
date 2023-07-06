@@ -15,10 +15,6 @@ export class SignUpPComponent {
   password=faLock;
   
   signUp(data: SignUp):void{
-    this.signup.userSignUp(data).subscribe((result) => {
-      if(result){
-        this.router.navigate(['api/v1/log-in'])
-      }
-    });
+    this.signup.userSignUp(data)
   }
 }

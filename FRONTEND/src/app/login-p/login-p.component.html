@@ -2,7 +2,7 @@
 
     <div class="wrapper">
         <h2 id="head_log">Login</h2>
-        <form >
+        <form #LogIn = "ngForm" (ngSubmit)="login(LogIn.value)">
             <div class="input_box">
                 <span class="icon"><fa-icon [icon]="email"></fa-icon></span>
                 <input type="email" class="inpt" name="email" ngModel>
@@ -20,7 +20,7 @@
             </div>
             
             <div class="register">
-                <p>Don't have account? <a routerLink="sign-up" class="register-link">Register</a></p>
+                <p>Don't have account? <button class="register-link">Register</button></p>
             </div>
         </form>
     </div>

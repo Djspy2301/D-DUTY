@@ -1,32 +1,43 @@
 const Host = require('../models/task');
+const CryptoJS = require("crypto-js");
+
 const getLogin = async (req, res) =>{
-    const {email, password} = req.body;
 
     try {
-        const isHostValid = res.json(req.body.user);
-        isValidHost === await Host.findOne({email});
-
-        if(!isHostValid){
-            return res.status(404).json({error: 'User not find'});
+        const user = await Host.findOne({email: req.body.email});
+        
+        if(!user){
+            return res.status(401).json("Wrong Credentials!")
         }
 
-        const isPasswordValid = res.json(req.body.password);
-        isPasswordValid === await Host.findOne({password});
-
-        if(!isPasswordValid){
-            return res.status(404).json({error: 'Invalid password'})
+        const hashPassword = CryptoJS.AES.decrypt(
+            user.password, 
+          process.env.PASS_SEC
+        );
+        const password = hashPassword.toString(CryptoJS.enc.Utf8);
+        if(password !== req.body.password){
+            return res.status(401).json("Wrong Credentials");  
         }
-        res.send('successfully logged in!!!');
+
+        res.status(200).json(user);
     }catch(error){
-        console.error('Login error', error);
-        return res.status(500).json({error:'Internal server error'})
+        console.log(error);
+        res.status(500).json(error);
     }
     
 }
-
+//REGISTRATION
 const hostSignUp = async (req, res) => {
+    const newUser= new Host({
+        user: req.body.user,
+        email: req.body.email,
+        password: CryptoJS.AES.encrypt(
+            req.body.password, 
+            process.env.PASS_SEC)
+            .toString()
+    });
     try {
-        const host = await Host.create(req.body);
+        const host = await Host.create(newUser);
         res.status(201).json({host});   
     } catch (error) {
         res.status(500).json({msg:error});

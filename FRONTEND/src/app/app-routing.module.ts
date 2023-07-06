@@ -19,12 +19,16 @@ const routes: Routes = [
   },
   {
     path: 'api/v1/log-in',
-    component: LoginPComponent
+    component: LoginPComponent,
+    canActivate: [authGuard]
   },
+  // {
+  //   path: 'register',
+  //   component: SignUpPComponent
+  // },
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    canActivate:[authGuard]
+    component: DashboardComponent
   }
 ];
 
