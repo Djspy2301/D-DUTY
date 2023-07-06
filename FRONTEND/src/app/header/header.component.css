@@ -30,8 +30,8 @@
     color: black;
     font-weight: bold;
     font-size: 18px;
+    cursor: pointer;
 }
-
 /* #icn{
     border: 1px solid black;
     background-image: linear-gradient(red, orange   );

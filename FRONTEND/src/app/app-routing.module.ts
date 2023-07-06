@@ -6,6 +6,7 @@ import { LoginPComponent } from './login-p/login-p.component';
 import { faDashboard } from '@fortawesome/free-solid-svg-icons';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
+import { ProfilePComponent } from './profile-p/profile-p.component';
 
 
 const routes: Routes = [
@@ -22,10 +23,10 @@ const routes: Routes = [
     component: LoginPComponent,
     canActivate: [authGuard]
   },
-  // {
-  //   path: 'register',
-  //   component: SignUpPComponent
-  // },
+  {
+    path: 'profile',
+    component: ProfilePComponent
+  },
   {
     path: 'dashboard',
     component: DashboardComponent

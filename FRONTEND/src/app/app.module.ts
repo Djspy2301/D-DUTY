@@ -10,7 +10,8 @@ import { SignUpPComponent } from './sign-up-p/sign-up-p.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProfilePComponent } from './profile-p/profile-p.component'
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http'
     HomePComponent,
     SignUpPComponent,
     DashboardComponent,
+    ProfilePComponent,
     
   ],
   imports: [

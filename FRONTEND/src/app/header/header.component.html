@@ -1,14 +1,20 @@
 <div>
   <nav class="nav">
 
-    <img src="https://www.clipartmax.com/png/middle/98-987357_dmagazine-d-magazine.png" style="width: 3rem" alt="Logo">
+    <img routerLink="" src="https://www.clipartmax.com/png/middle/98-987357_dmagazine-d-magazine.png" style="width: 3rem" alt="Logo">
+    <div [ngSwitch]="menuType">
+      <ul *ngSwitchCase="'default'">
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="api/v1/log-in">Login</a></li>
+        <li><a routerLink="api/v1/sign-up">Register</a></li>
+      </ul>
 
-    <ul>
-      <li><a routerLink="">Home</a></li>
-      <li><a routerLink="/api/v1/log-in">Login</a></li>
-      <li><a routerLink="/api/v1/sign-up">Register</a></li>
-      <li><a *ngIf="" routerLink="/api/v1/log-in">Logout</a></li>
-    </ul>
+      <ul *ngSwitchCase="'admin'">
+        <li><a routerLink="profile">Profile</a></li>
+        <li><a routerLink="dashboard">Dashboard</a></li>
+        <li><a (click)="logOut()">Logout</a></li>
+      </ul>
+    </div>
 
 
   </nav>
