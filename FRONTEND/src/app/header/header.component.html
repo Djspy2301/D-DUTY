@@ -10,7 +10,7 @@
       </ul>
 
       <ul *ngSwitchCase="'admin'">
-        <li><a routerLink="profile">Profile</a></li>
+        <li><a routerLink="profile">{{profileName | titlecase}}</a></li>
         <li><a routerLink="dashboard">Dashboard</a></li>
         <li><a (click)="logOut()">Logout</a></li>
       </ul>

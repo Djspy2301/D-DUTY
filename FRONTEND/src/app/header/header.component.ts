@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   constructor(private route: Router){}
-  menuType: String = 'default';
+  menuType: string = 'default';
+  profileName: string = '';
+  
   ngOnInit(): void{
     this.route.events.subscribe((val: any) => {
       
@@ -18,6 +20,12 @@ export class HeaderComponent {
         if(localStorage.getItem('login') && val.url.includes('dashboard')){
           console.warn('in login area')
           this.menuType = 'admin';
+          if(localStorage.getItem('login')){
+            let nameStore = localStorage.getItem('login');
+            let nameData = nameStore && JSON.parse(nameStore);
+            this.profileName=nameData.user;
+            console.log(this.profileName);
+          }
         }else{
           console.warn('outside login')
           this.menuType = 'default';
