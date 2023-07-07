@@ -40,7 +40,12 @@ export class AdminService {
      this.router.navigate(['dashboard']);   
     }
   }
-
+  reloadProfile(){
+    if(localStorage.getItem('login')){
+      this.isAdminLoggedIn.next(true);
+      this.router.navigate(['profile'])
+    }
+  }
   // logout(){
   //   alert('Your session get expired!')
   //   localStorage.clear();

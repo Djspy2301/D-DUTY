@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-profile-p',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-p.component.css']
 })
 export class ProfilePComponent {
+  constructor(private adminService: AdminService){}
 
+  ngOnInit(){
+    this.adminService.reloadProfile();
+  }
 }

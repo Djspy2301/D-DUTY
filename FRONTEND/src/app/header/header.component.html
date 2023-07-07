@@ -5,8 +5,11 @@
     <div [ngSwitch]="menuType">
       <ul *ngSwitchCase="'default'">
         <li><a routerLink="">Home</a></li>
-        <li><a routerLink="api/v1/log-in">Login</a></li>
-        <li><a routerLink="api/v1/sign-up">Register</a></li>
+        <li><a  routerLink="api/v1/log-in">Login</a></li>
+        <li><a  routerLink="api/v1/sign-up">Register</a></li>
+        <!-- <li><a  (click)="logOut()">Logout</a></li>
+        <li><a  routerLink="dashboard">Dashboard</a></li>
+        <li><a  routerLink="profile">{{profileName | titlecase}}</a></li> -->
       </ul>
 
       <ul *ngSwitchCase="'admin'">

@@ -25,11 +25,13 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfilePComponent
+    component: ProfilePComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [authGuard]
   }
 ];
 
