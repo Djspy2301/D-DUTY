@@ -11,7 +11,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import {HttpClientModule} from '@angular/common/http';
-import { ProfilePComponent } from './profile-p/profile-p.component'
+import { ProfilePComponent } from './profile-p/profile-p.component';
+import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component'
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ProfilePComponent } from './profile-p/profile-p.component'
     SignUpPComponent,
     DashboardComponent,
     ProfilePComponent,
+    AddStaffPComponent,
     
   ],
   imports: [

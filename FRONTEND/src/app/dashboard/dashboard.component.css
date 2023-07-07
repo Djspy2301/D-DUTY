@@ -1,0 +1,13 @@
+.container{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.container img{
+    cursor: pointer;
+}
+.card{
+    margin: 20px;
+}

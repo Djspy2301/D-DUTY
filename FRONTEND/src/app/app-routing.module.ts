@@ -7,6 +7,7 @@ import { faDashboard } from '@fortawesome/free-solid-svg-icons';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
 import { ProfilePComponent } from './profile-p/profile-p.component';
+import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'add-staff',
+    component: AddStaffPComponent
   }
 ];
 
