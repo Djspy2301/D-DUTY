@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-staff-p.component.css']
 })
 export class AddStaffPComponent {
+  
+  constructor() { }
 
+  ngOnInit() { }
+  
+  register(data:any){
+    console.log(data);
+  }
 }
