@@ -10,11 +10,10 @@ import { BehaviorSubject } from 'rxjs';
 export class AdminService {
   isAdminLoggedIn = new BehaviorSubject<boolean>(false)
   static isAdminLoggedIn: BehaviorSubject<boolean>;
-  // private uri = "http://localhost:8000/api/v1/login";
   constructor(private http: HttpClient, private router: Router) {
   }
-
-  userSignUp(data: SignUp){
+// admin registration
+  adminSignUp(data: SignUp){
     this.http
     .post("http://localhost:8000/api/v1/sign-up",data,{observe:'response'})
     .subscribe((result) => {
@@ -24,41 +23,37 @@ export class AdminService {
       console.warn(this.isAdminLoggedIn.value);
     })
   }
-
+//User Registration by admin
+  addUser(data: any){
+    this.http
+    .post("http://localhost:8000/api/v1/dashboard/add-staff", data).subscribe((result:any)=>{
+      console.warn(result);
+    })
+  }
+//login
   login(data: LogIn):void{
     this.http.post("http://localhost:8000/api/v1/log-in",
     data,
     {observe:"response"}).subscribe((result) => {
       localStorage.setItem('login', JSON.stringify(result.body))
-      this.router.navigate(['dashboard'])
+      this.router.navigate(['api/v1/dashboard'])
       console.log(result);
     }) 
   }
+  // If logged in reload page
   reloadLogin(){
     if(localStorage.getItem('login')){
      this.isAdminLoggedIn.next(true);
-     this.router.navigate(['dashboard']);   
+     this.router.navigate(['api/v1/dashboard']);   
     }
   }
+  //If logged in Profile page
   reloadProfile(){
     if(localStorage.getItem('login')){
       this.isAdminLoggedIn.next(true);
       this.router.navigate(['profile'])
     }
   }
-  // logout(){
-  //   alert('Your session get expired!')
-  //   localStorage.clear();
-  //   this.router.navigateByUrl('/login')
-  // }
 
-  // dashBoadrd(){
-  //   let headers= new HttpHeaders()
-  //   .set("Authorization", `bearer ${localStorage.getItem('token')}`)
-    
-
-  //   this.http.post("http://localhost:8000/api/v1/tasks/dashboard", {}, {headers}).subscribe((result: object)=>{
-  //   })
-    
-  // }
+ 
 }

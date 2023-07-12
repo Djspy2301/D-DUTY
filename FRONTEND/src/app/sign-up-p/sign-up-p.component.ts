@@ -15,6 +15,6 @@ export class SignUpPComponent {
   password=faLock;
   
   signUp(data: SignUp):void{
-    this.signup.userSignUp(data)
+    this.signup.adminSignUp(data)
   }
 }

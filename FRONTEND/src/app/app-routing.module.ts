@@ -30,12 +30,12 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'dashboard',
+    path: 'api/v1/dashboard',
     component: DashboardComponent,
     canActivate: [authGuard]
   },
   {
-    path: 'add-staff',
+    path: 'api/v1/dashboard/add-staff',
     component: AddStaffPComponent
   }
 ];

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
   selector: 'app-add-staff-p',
@@ -7,11 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AddStaffPComponent {
   
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() { }
   
   register(data:any){
-    console.log(data);
+    
+    this.adminService.addUser(data);
   }
 }
