@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
-import { LogIn, SignUp } from '../dataType';
+import { LogIn, SignUp, UserReg } from '../dataType';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
+  //Getting _id of host to create corresponding host's user
+  adminId =JSON.parse(localStorage.getItem('login') ?? '{}');
+  _id= this.adminId['_id'];
+  //--------------------------------------------------------
   isAdminLoggedIn = new BehaviorSubject<boolean>(false)
   static isAdminLoggedIn: BehaviorSubject<boolean>;
   constructor(private http: HttpClient, private router: Router) {
@@ -24,7 +28,7 @@ export class AdminService {
     })
   }
 //User Registration by admin
-  addUser(data: any){
+  addUser(data: UserReg){
     this.http
     .post("http://localhost:8000/api/v1/dashboard/add-staff", data).subscribe((result:any)=>{
       console.warn(result);
@@ -44,7 +48,7 @@ export class AdminService {
   reloadLogin(){
     if(localStorage.getItem('login')){
      this.isAdminLoggedIn.next(true);
-     this.router.navigate(['api/v1/dashboard']);   
+     this.router.navigate(['api/v1/dashboard']); 
     }
   }
   //If logged in Profile page
@@ -52,6 +56,7 @@ export class AdminService {
     if(localStorage.getItem('login')){
       this.isAdminLoggedIn.next(true);
       this.router.navigate(['profile'])
+      
     }
   }
 

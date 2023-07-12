@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserReg } from 'src/app/dataType';
 import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
@@ -10,10 +11,15 @@ export class AddStaffPComponent {
   
   constructor(private adminService: AdminService) { }
 
-  ngOnInit() { }
-  
-  register(data:any){
+  ngOnInit() {
+    
+   }
+
+  adminId = this.adminService._id
+
+  register(data:UserReg){
     
     this.adminService.addUser(data);
+    console.log(this.adminId);
   }
 }
