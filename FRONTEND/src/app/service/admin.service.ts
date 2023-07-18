@@ -11,6 +11,7 @@ export class AdminService {
   //Getting _id of host to create corresponding host's user
   adminId =JSON.parse(localStorage.getItem('login') ?? '{}');
   _id= this.adminId['_id'];
+  
   //--------------------------------------------------------
   isAdminLoggedIn = new BehaviorSubject<boolean>(false)
   static isAdminLoggedIn: BehaviorSubject<boolean>;
@@ -41,6 +42,7 @@ export class AdminService {
     {observe:"response"}).subscribe((result) => {
       localStorage.setItem('login', JSON.stringify(result.body))
       this.router.navigate(['api/v1/dashboard'])
+      window.location.reload();
       console.log(result);
     }) 
   }
@@ -60,5 +62,8 @@ export class AdminService {
     }
   }
 
+  reloadAddStaff(){
+      this.router.navigate(['api/v1/dashboard/add-staff'])
+  }
  
 }

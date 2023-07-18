@@ -12,14 +12,13 @@ export class AddStaffPComponent {
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    
-   }
-
+  }
   adminId = this.adminService._id
-
+  
   register(data:UserReg){
     
     this.adminService.addUser(data);
     console.log(this.adminId);
   }
+  
 }
