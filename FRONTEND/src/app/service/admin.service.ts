@@ -62,8 +62,12 @@ export class AdminService {
     }
   }
 
-  reloadAddStaff(){
-      this.router.navigate(['api/v1/dashboard/add-staff'])
+  //Staff List
+  staff(){
+    this.http.get('http://localhost:8000/api/v1/dashboard/staff')
+    .subscribe((result)=>{
+      console.warn(result);
+    })
   }
  
 }

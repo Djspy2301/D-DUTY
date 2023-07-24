@@ -12,7 +12,8 @@ import {FormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import {HttpClientModule} from '@angular/common/http';
 import { ProfilePComponent } from './profile-p/profile-p.component';
-import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component'
+import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component';
+import { StaffsPComponent } from './dashboard/staffs-p/staffs-p.component'
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.componen
     DashboardComponent,
     ProfilePComponent,
     AddStaffPComponent,
+    StaffsPComponent,
     
   ],
   imports: [

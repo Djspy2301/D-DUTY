@@ -79,6 +79,16 @@ const createUser = async (req, res) => {
         res.status(500).json({ msg: error });
     }
 }
+//Displaying Staff List
+const staffList = async (req, res) => {
+    try {
+        const staff = await User.find();
+        res.status(200).json({staff});
+    } catch (error) {
+        res.status(500).json({msg: error});
+    }
+    
+}
 
 const updateUser = (req, res) => {
     res.send("user updated!!!");
@@ -91,5 +101,6 @@ const deleteUser = (req, res) => {
 module.exports = {
     getLogin, createUser,
     hostSignUp, updateUser,
-    getAllUsers, deleteUser
+    getAllUsers, deleteUser,
+    staffList
 }
