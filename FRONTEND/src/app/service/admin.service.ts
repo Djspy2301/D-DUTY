@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
-import { LogIn, SignUp, UserReg } from '../dataType';
+import { LogIn, SignUp, User, UserReg } from '../dataType';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -63,11 +63,11 @@ export class AdminService {
   }
 
   //Staff List
+  uri = 'https://jsonplaceholder.typicode.com/users';
+
   staff(){
-    this.http.get('http://localhost:8000/api/v1/dashboard/staff')
-    .subscribe((result)=>{
-      console.warn(result);
-    })
+    return this.http
+    .get<User[]>('http://localhost:8000/api/v1/dashboard/staff')
   }
  
 }

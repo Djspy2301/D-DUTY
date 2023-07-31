@@ -1,1 +1,27 @@
 <p>Staffs List</p>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Degignation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$">
+        <th  scope="row">1</th>
+        <td>{{user.fName}}</td>
+        <td>{{user.lName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.degignation}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+  
+  

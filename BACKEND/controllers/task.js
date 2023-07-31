@@ -82,10 +82,11 @@ const createUser = async (req, res) => {
 //Displaying Staff List
 const staffList = async (req, res) => {
     try {
-        const staff = await User.find();
-        res.status(200).json({staff});
+        const staff = await User.find({});
+        res.status(200).json(staff);
     } catch (error) {
         res.status(500).json({msg: error});
+        console.log(error);
     }
     
 }
