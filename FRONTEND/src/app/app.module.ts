@@ -13,7 +13,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import {HttpClientModule} from '@angular/common/http';
 import { ProfilePComponent } from './profile-p/profile-p.component';
 import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component';
-import { StaffsPComponent } from './dashboard/staffs-p/staffs-p.component'
+import { StaffsPComponent } from './dashboard/staffs-p/staffs-p.component';
+import { TimeSchedulePComponent } from './dashboard/time-schedule-p/time-schedule-p.component'
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { StaffsPComponent } from './dashboard/staffs-p/staffs-p.component'
     ProfilePComponent,
     AddStaffPComponent,
     StaffsPComponent,
+    TimeSchedulePComponent,
     
   ],
   imports: [

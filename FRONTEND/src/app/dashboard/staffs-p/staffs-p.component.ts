@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/dataType';
-import { AdminService } from 'src/app/service/admin.service';
+import { SchedulingService } from 'src/app/service/scheduling.service';
+
 
 @Component({
   selector: 'app-staffs-p',
@@ -35,14 +36,14 @@ export class StaffsPComponent {
   //   },
   // ];
   users$:undefined|User[];
-  constructor(private adminService: AdminService){}
+  constructor(private scheduleService: SchedulingService){}
   
   ngOnInit():void{
     this.getStaffList();
   }
 
   getStaffList(){
-    this.adminService.staff().subscribe((response)=>{
+    this.scheduleService.staff().subscribe((response)=>{
       console.log(response)
       this.users$ = response;
      }

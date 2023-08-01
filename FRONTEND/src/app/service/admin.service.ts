@@ -8,9 +8,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  //Getting _id of host to create corresponding host's user
-  adminId =JSON.parse(localStorage.getItem('login') ?? '{}');
-  _id= this.adminId['_id'];
+  
   
   //--------------------------------------------------------
   isAdminLoggedIn = new BehaviorSubject<boolean>(false)
@@ -28,13 +26,7 @@ export class AdminService {
       console.warn(this.isAdminLoggedIn.value);
     })
   }
-//User Registration by admin
-  addUser(data: UserReg){
-    this.http
-    .post("http://localhost:8000/api/v1/dashboard/add-staff", data).subscribe((result:any)=>{
-      console.warn(result);
-    })
-  }
+
 //login
   login(data: LogIn):void{
     this.http.post("http://localhost:8000/api/v1/log-in",
@@ -60,14 +52,6 @@ export class AdminService {
       this.router.navigate(['profile'])
       
     }
-  }
-
-  //Staff List
-  uri = 'https://jsonplaceholder.typicode.com/users';
-
-  staff(){
-    return this.http
-    .get<User[]>('http://localhost:8000/api/v1/dashboard/staff')
   }
  
 }

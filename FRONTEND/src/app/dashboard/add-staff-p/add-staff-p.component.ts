@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserReg } from 'src/app/dataType';
-import { AdminService } from 'src/app/service/admin.service';
+import { SchedulingService } from 'src/app/service/scheduling.service';
+
 
 @Component({
   selector: 'app-add-staff-p',
@@ -9,15 +10,15 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class AddStaffPComponent {
   
-  constructor(private adminService: AdminService) { }
+  constructor(private scheduleService: SchedulingService) { }
 
   ngOnInit() {
   }
-  adminId = this.adminService._id
+  adminId = this.scheduleService._id
   
   register(data:UserReg){
     
-    this.adminService.addUser(data);
+    this.scheduleService.addUser(data);
     console.log(this.adminId);
   }
   

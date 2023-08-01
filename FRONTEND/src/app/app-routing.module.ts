@@ -8,6 +8,7 @@ import { authGuard } from './auth.guard';
 import { ProfilePComponent } from './profile-p/profile-p.component';
 import { AddStaffPComponent } from './dashboard/add-staff-p/add-staff-p.component';
 import { StaffsPComponent } from './dashboard/staffs-p/staffs-p.component';
+import { TimeSchedulePComponent } from './dashboard/time-schedule-p/time-schedule-p.component';
 
 
 const routes: Routes = [
@@ -36,11 +37,16 @@ const routes: Routes = [
   },
   {
     path: 'api/v1/dashboard/add-staff',
-    component: AddStaffPComponent
+    component: AddStaffPComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'api/v1/dashboard/staff',
     component: StaffsPComponent
+  },
+  {
+    path: 'api/v1/dashboard/schedule-time',
+    component: TimeSchedulePComponent
   }
 ];
 
