@@ -1,6 +1,7 @@
 const { json } = require('express');
 const Host = require('../models/host');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 const CryptoJS = require("crypto-js");
 
 const getLogin = async (req, res) => {
@@ -21,7 +22,12 @@ const getLogin = async (req, res) => {
             return res.status(401).json("Wrong Credentials");
         }
 
-        res.status(200).json(user);
+        const accessToken = jwt.sign({
+            id:Host._id
+        },process.env.JWT_SEC,{expiresIn:"3d"}
+        );
+
+        res.status(200).json({...user._doc, accessToken});
     } catch (error) {
         console.log(error);
         res.status(500).json(error);
@@ -81,6 +87,8 @@ const createUser = async (req, res) => {
 }
 //Displaying Staff List
 const staffList = async (req, res) => {
+    // let hostId= req.params.id;
+    // const query = {adminId: hostId}
     try {
         const staff = await User.find({});
         res.status(200).json(staff);
@@ -91,17 +99,26 @@ const staffList = async (req, res) => {
     
 }
 
+const createTimeSlots = async (req, res) => {
+
+}
+
 const updateUser = (req, res) => {
     res.send("user updated!!!");
 }
 
-const deleteUser = (req, res) => {
-    res.send("user Deleted Successfully!!!");
+const deleteUser = async (req, res) => {
+    try {
+        const {id: userId} = req.params;
+        const delUser = await User.findOneAndDelete();
+    } catch (error) {
+        
+    }
 }
 
 module.exports = {
     getLogin, createUser,
     hostSignUp, updateUser,
     getAllUsers, deleteUser,
-    staffList
+    staffList, createTimeSlots
 }

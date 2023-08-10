@@ -1,18 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User, UserReg } from '../dataType';
+import { AdminService } from './admin.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchedulingService {
 
-  constructor(private http: HttpClient) { }
-
-  //Getting _id of host to create corresponding host's user
-  adminId =JSON.parse(localStorage.getItem('login') ?? '{}');
-  _id= this.adminId['_id'];
-
+  constructor(private http: HttpClient, private adminService: AdminService) { }
+  //host _id:
+  _id = this.adminService._id;
   //User Registration by admin
   addUser(data: UserReg){
     this.http

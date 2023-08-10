@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/dataType';
 import { SchedulingService } from 'src/app/service/scheduling.service';
 
@@ -35,10 +36,22 @@ export class StaffsPComponent {
   //     job: "Doctor",
   //   },
   // ];
+
+
+
   users$:undefined|User[];
-  constructor(private scheduleService: SchedulingService){}
+  // storedId=this.sheduleService._id;
+  // parameterValue: string ='';
+
+  constructor(private scheduleService: SchedulingService,
+    private sheduleService:SchedulingService,
+    private route: ActivatedRoute){
+      // this.parameterValue=this.route.snapshot.paramMap.get(this.storedId) as string
+    }
   
   ngOnInit():void{
+    // this.parameterValue=this.route.snapshot.paramMap.get(this.storedId) || ''
+    // console.log(this.parameterValue)
     this.getStaffList();
   }
 

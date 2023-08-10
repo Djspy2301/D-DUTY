@@ -8,7 +8,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  
+  //Getting _id of host to create corresponding host's user
+  adminId =JSON.parse(localStorage.getItem('login') ?? '{}');
+  _id= this.adminId['_id'];
   
   //--------------------------------------------------------
   isAdminLoggedIn = new BehaviorSubject<boolean>(false)
